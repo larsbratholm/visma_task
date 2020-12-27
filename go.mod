@@ -1,4 +1,4 @@
-module github.com/e-conomic/hiring-assigments/machinelearningteam/image-scaling-service
+module github.com/larsbratholm/visma_task
 
 go 1.12
 

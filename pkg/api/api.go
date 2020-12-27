@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	api "github.com/e-conomic/hiring-assigments/machinelearningteam/image-scaling-service/proto"
+	api "github.com/larsbratholm/visma_task/proto"
 )
 
 // Server is a server implementing the proto API
@@ -14,7 +14,7 @@ type Server struct{}
 func (s *Server) ScaleImage(ctx context.Context, req *api.ScaleImageRequest) (
 	*api.ScaleImageReply, error) {
 	// Echo
-	fmt.Println("Recieved image...")
+	fmt.Println("Received image...")
 	return &api.ScaleImageReply{
 		Content: req.Image.GetContent(),
 	}, nil

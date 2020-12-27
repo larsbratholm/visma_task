@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 
-	pb "github.com/e-conomic/hiring-assigments/machinelearningteam/image-scaling-service/proto"
+	pb "github.com/larsbratholm/visma_task/proto"
 	"google.golang.org/grpc"
 )
 

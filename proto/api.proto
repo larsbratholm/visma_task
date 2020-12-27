@@ -3,11 +3,13 @@ syntax = "proto3";
 package imagescaler;
 
 service ImageScaler {
-    rpc ScaleImage (ScaleImageRequest) returns (ScaleImageReply) {}
+    rpc ScaleImage (stream ScaleImageRequest) returns (stream ScaleImageReply) {}
   }
 
   message ScaleImageRequest {
-    Image image = 1;
+    required Image image = 1;
+    optional bool normalisation = 2;
+    optional bool greyscaling = 3;
   }
 
   message ScaleImageReply {

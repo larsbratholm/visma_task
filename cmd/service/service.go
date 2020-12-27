@@ -5,8 +5,8 @@ import (
 	"net"
 	"net/http"
 
-	"github.com/e-conomic/hiring-assigments/machinelearningteam/image-scaling-service/pkg/api"
-	pb "github.com/e-conomic/hiring-assigments/machinelearningteam/image-scaling-service/proto"
+	"github.com/larsbratholm/visma_task/pkg/api"
+	pb "github.com/larsbratholm/visma_task/proto"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"google.golang.org/grpc"
 
