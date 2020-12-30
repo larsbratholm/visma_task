@@ -26,8 +26,8 @@ const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type ScaleImageRequest struct {
 	Image                *Image   `protobuf:"bytes,1,opt,name=image,proto3" json:"image,omitempty"`
-//    Rescale              bool     `protobuf:"varint,2,opt,name=rescale" json:"rescale,omitempty"`
-//    Greyscaling          bool     `protobuf:"varint,3,opt,name=greyscaling" json:"greyscaling,omitempty"`
+    Resize               bool     `protobuf:"varint,2,opt,name=rescale" json:"resize,omitempty"`
+    Greyscaling          bool     `protobuf:"varint,3,opt,name=greyscaling" json:"greyscaling,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`

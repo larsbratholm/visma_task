@@ -13,9 +13,9 @@ service ImageScaler {
     // The image
     Image image = 1;
     // If the image should be rescaled
-//    bool rescale = 2;
-//    // If the image should be grey-scaled
-//    bool greyscaling = 3;
+    bool resize = 2;
+    // If the image should be grey-scaled
+    bool greyscaling = 3;
   }
 
   message ScaleImageReply {
