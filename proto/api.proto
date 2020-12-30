@@ -7,19 +7,15 @@ package imagescaler;
 service ImageScaler {
     // Obtain re-scaled and possibly grey scaled images
     rpc ScaleImage (ScaleImageRequest) returns (ScaleImageReply) {}
-
-    // Obtain re-scaled and possible grey scaled images
-    // as a stream
-    rpc ScaleImageStream (stream ScaleImageRequest) returns (stream ScaleImageReply) {}
   }
 
   message ScaleImageRequest {
     // The image
     Image image = 1;
     // If the image should be rescaled
-    bool rescale = 2;
-    // If the image should be grey-scaled
-    bool greyscaling = 3;
+//    bool rescale = 2;
+//    // If the image should be grey-scaled
+//    bool greyscaling = 3;
   }
 
   message ScaleImageReply {

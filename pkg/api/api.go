@@ -4,37 +4,27 @@ import (
 	"context"
 	"fmt"
 	api "github.com/larsbratholm/visma_task/proto"
+	"google.golang.org/grpc"
 )
 
 // Server is a server implementing the proto API
-//type Server struct{client *api.ImageScalerClient}
-type Server struct{}
+type Server struct{
+    Client api.ImageScalerClient
+}
+
 
 // ScaleImage connects locally to python service
 func (s *Server) ScaleImage(ctx context.Context, req *api.ScaleImageRequest) (
 	*api.ScaleImageReply, error) {
 	// Echo
 	fmt.Println("Received image...")
-	return &api.ScaleImageReply{
-		Content: req.Image.GetContent(),
-	}, nil
-	
-//	return &api.ScaleImageReply{
-//		Content: s.client.ScaleImage(ctx, req),
-//	}, nil
+	// Forward to python server
+    reply, err := s.Client.ScaleImage(ctx, req)
+    return reply, err
 }
 
-//// Get connection to the python ImageScaler server
-//func getImageScalerConnection(host string) (*grpc.ClientConn, error) {
-//    return grpc.Dial(host, grpc.WithInsecure())
-//}
-//
-//func getImageScalerClient(host string) *pb.ImageScalerClient{
-//	conn, err := getImageScalerConnection(host)
-//	if err != nil {
-//		log.Fatalf("Did not connect to Image Scaler Client: %v", err)
-//	}
-//	defer conn.Close()
-//
-//	return pb.NewImageScalerClient(conn)
-//}
+// Get connection to the python ImageScaler server
+func GetImageScalerConnection(host string) (*grpc.ClientConn, error) {
+    return grpc.Dial(host, grpc.WithInsecure())
+}
+

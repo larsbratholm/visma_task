@@ -19,11 +19,6 @@ class ImageScalerStub(object):
         request_serializer=api__pb2.ScaleImageRequest.SerializeToString,
         response_deserializer=api__pb2.ScaleImageReply.FromString,
         )
-    self.ScaleImageStream = channel.stream_stream(
-        '/imagescaler.ImageScaler/ScaleImageStream',
-        request_serializer=api__pb2.ScaleImageRequest.SerializeToString,
-        response_deserializer=api__pb2.ScaleImageReply.FromString,
-        )
 
 
 class ImageScalerServicer(object):
@@ -37,24 +32,11 @@ class ImageScalerServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def ScaleImageStream(self, request_iterator, context):
-    """Obtain re-scaled and possible grey scaled images
-    as a stream
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
 
 def add_ImageScalerServicer_to_server(servicer, server):
   rpc_method_handlers = {
       'ScaleImage': grpc.unary_unary_rpc_method_handler(
           servicer.ScaleImage,
-          request_deserializer=api__pb2.ScaleImageRequest.FromString,
-          response_serializer=api__pb2.ScaleImageReply.SerializeToString,
-      ),
-      'ScaleImageStream': grpc.stream_stream_rpc_method_handler(
-          servicer.ScaleImageStream,
           request_deserializer=api__pb2.ScaleImageRequest.FromString,
           response_serializer=api__pb2.ScaleImageReply.SerializeToString,
       ),

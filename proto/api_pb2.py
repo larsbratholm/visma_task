@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='imagescaler',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\tapi.proto\x12\x0bimagescaler\"\\\n\x11ScaleImageRequest\x12!\n\x05image\x18\x01 \x01(\x0b\x32\x12.imagescaler.Image\x12\x0f\n\x07rescale\x18\x02 \x01(\x08\x12\x13\n\x0bgreyscaling\x18\x03 \x01(\x08\"\"\n\x0fScaleImageReply\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\x0c\"B\n\x05Image\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\x0c\x12(\n\x06source\x18\x02 \x01(\x0b\x32\x18.imagescaler.ImageSource\"\x1f\n\x0bImageSource\x12\x10\n\x08http_uri\x18\x01 \x01(\t2\xb3\x01\n\x0bImageScaler\x12L\n\nScaleImage\x12\x1e.imagescaler.ScaleImageRequest\x1a\x1c.imagescaler.ScaleImageReply\"\x00\x12V\n\x10ScaleImageStream\x12\x1e.imagescaler.ScaleImageRequest\x1a\x1c.imagescaler.ScaleImageReply\"\x00(\x01\x30\x01\x62\x06proto3')
+  serialized_pb=_b('\n\tapi.proto\x12\x0bimagescaler\"6\n\x11ScaleImageRequest\x12!\n\x05image\x18\x01 \x01(\x0b\x32\x12.imagescaler.Image\"\"\n\x0fScaleImageReply\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\x0c\"B\n\x05Image\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\x0c\x12(\n\x06source\x18\x02 \x01(\x0b\x32\x18.imagescaler.ImageSource\"\x1f\n\x0bImageSource\x12\x10\n\x08http_uri\x18\x01 \x01(\t2[\n\x0bImageScaler\x12L\n\nScaleImage\x12\x1e.imagescaler.ScaleImageRequest\x1a\x1c.imagescaler.ScaleImageReply\"\x00\x62\x06proto3')
 )
 
 
@@ -39,20 +39,6 @@ _SCALEIMAGEREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='rescale', full_name='imagescaler.ScaleImageRequest.rescale', index=1,
-      number=2, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='greyscaling', full_name='imagescaler.ScaleImageRequest.greyscaling', index=2,
-      number=3, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -66,7 +52,7 @@ _SCALEIMAGEREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=26,
-  serialized_end=118,
+  serialized_end=80,
 )
 
 
@@ -96,8 +82,8 @@ _SCALEIMAGEREPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=120,
-  serialized_end=154,
+  serialized_start=82,
+  serialized_end=116,
 )
 
 
@@ -134,8 +120,8 @@ _IMAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=156,
-  serialized_end=222,
+  serialized_start=118,
+  serialized_end=184,
 )
 
 
@@ -165,8 +151,8 @@ _IMAGESOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=224,
-  serialized_end=255,
+  serialized_start=186,
+  serialized_end=217,
 )
 
 _SCALEIMAGEREQUEST.fields_by_name['image'].message_type = _IMAGE
@@ -213,22 +199,13 @@ _IMAGESCALER = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=258,
-  serialized_end=437,
+  serialized_start=219,
+  serialized_end=310,
   methods=[
   _descriptor.MethodDescriptor(
     name='ScaleImage',
     full_name='imagescaler.ImageScaler.ScaleImage',
     index=0,
-    containing_service=None,
-    input_type=_SCALEIMAGEREQUEST,
-    output_type=_SCALEIMAGEREPLY,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='ScaleImageStream',
-    full_name='imagescaler.ImageScaler.ScaleImageStream',
-    index=1,
     containing_service=None,
     input_type=_SCALEIMAGEREQUEST,
     output_type=_SCALEIMAGEREPLY,

@@ -4,7 +4,6 @@ import (
 	"log"
 	"net"
 	"net/http"
-
 	"github.com/larsbratholm/visma_task/pkg/api"
 	pb "github.com/larsbratholm/visma_task/proto"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
@@ -16,6 +15,7 @@ import (
 
 const (
 	port = ":50051"
+    image_scaler_host = "localhost:50052"
 )
 
 // starts the Prometheus stats endpoint server
@@ -40,7 +40,15 @@ func main() {
 	healthServ := health.NewHealthCheckService()
 	api_health.RegisterHealthServer(s, healthServ)
 
-	pb.RegisterImageScalerServer(s, &api.Server{})
+	// Register: ImageScalerServer (forward to python server)
+    conn, err := api.GetImageScalerConnection(image_scaler_host)
+    if err != nil {
+      log.Fatalf("Did not connect to Image Scaler Client: %v", err)
+    }
+    defer conn.Close()
+
+    client := pb.NewImageScalerClient(conn)
+    pb.RegisterImageScalerServer(s, &api.Server{Client:client})
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}

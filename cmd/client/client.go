@@ -4,6 +4,7 @@ import (
 	"context"
 	"io/ioutil"
 	"log"
+	"fmt"
 
 	pb "github.com/larsbratholm/visma_task/proto"
 	"google.golang.org/grpc"
@@ -30,6 +31,8 @@ func main() {
 		Image: &pb.Image{
 			Content: image,
 		},
+//        Rescale: false,
+//        Greyscaling: false,
 	})
 
 	ioutil.WriteFile("out.jpg", resp.GetContent(), 0644)
