@@ -2,17 +2,28 @@ syntax = "proto3";
 
 package imagescaler;
 
+
+// Interface exported by the server.
 service ImageScaler {
-    rpc ScaleImage (stream ScaleImageRequest) returns (stream ScaleImageReply) {}
+    // Obtain re-scaled and possibly grey scaled images
+    rpc ScaleImage (ScaleImageRequest) returns (ScaleImageReply) {}
+
+    // Obtain re-scaled and possible grey scaled images
+    // as a stream
+    rpc ScaleImageStream (stream ScaleImageRequest) returns (stream ScaleImageReply) {}
   }
 
   message ScaleImageRequest {
-    required Image image = 1;
-    optional bool normalisation = 2;
-    optional bool greyscaling = 3;
+    // The image
+    Image image = 1;
+    // If the image should be rescaled
+    bool rescale = 2;
+    // If the image should be grey-scaled
+    bool greyscaling = 3;
   }
 
   message ScaleImageReply {
+    // Image content
     bytes content = 1;
   }
 
