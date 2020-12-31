@@ -16,6 +16,11 @@ service ImageScaler {
     bool resize = 2;
     // If the image should be grey-scaled
     bool greyscaling = 3;
+    // Requested size
+    uint32 height = 4;
+    uint32 width = 5;
+    // Allow cropping if requested ratio isn't similar to original
+    bool allow_crop = 6;
   }
 
   message ScaleImageReply {

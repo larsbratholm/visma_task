@@ -22,15 +22,20 @@ func main() {
 	client := pb.NewImageScalerClient(conn)
 
 	image, err := ioutil.ReadFile("test.jpg")
+	_ = image
 	if err != nil {
 		log.Fatal("Couldn't read input image")
 	}
 	ctx := context.Background()
 	resp, err := client.ScaleImage(ctx, &pb.ScaleImageRequest{
 		Image: &pb.Image{
-			Content: image,
+			//Content: image,
+            Source: &pb.ImageSource{
+                HttpUri: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Conan_O%27Brien_by_Gage_Skidmore_2.jpg/1200px-Conan_O%27Brien_by_Gage_Skidmore_2.jpg",
+            },
 		},
-        Resize: false,
+        Resize: true,
+        AllowCrop: true,
         Greyscaling: true,
 	})
 

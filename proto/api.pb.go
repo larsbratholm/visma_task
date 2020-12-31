@@ -28,6 +28,11 @@ type ScaleImageRequest struct {
 	Image                *Image   `protobuf:"bytes,1,opt,name=image,proto3" json:"image,omitempty"`
     Resize               bool     `protobuf:"varint,2,opt,name=rescale" json:"resize,omitempty"`
     Greyscaling          bool     `protobuf:"varint,3,opt,name=greyscaling" json:"greyscaling,omitempty"`
+    // Requested size
+    Height               uint32   `protobuf:"varint,4,opt,name=height" json:"height,omitempty"`
+    Width                uint32   `protobuf:"varint,5,opt,name=width" json:"width,omitempty"`
+    // Allow cropping if requested ratio isn't similar to original
+    AllowCrop            bool     `protobuf:"varint,6,opt,name=allow_crop" json:"allow_crop,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
