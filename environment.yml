@@ -1,0 +1,8 @@
+name: imagescaler
+dependencies:
+    - python=3.8
+    - pillow
+    - numpy
+    - grpcio
+    - requests
+    - protobuf

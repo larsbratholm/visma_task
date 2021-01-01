@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	host = "localhost:50051"
+	host = ":50051"
 )
 
 func main() {
@@ -29,10 +29,10 @@ func main() {
 	ctx := context.Background()
 	resp, err := client.ScaleImage(ctx, &pb.ScaleImageRequest{
 		Image: &pb.Image{
-			//Content: image,
-            Source: &pb.ImageSource{
-                HttpUri: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Conan_O%27Brien_by_Gage_Skidmore_2.jpg/1200px-Conan_O%27Brien_by_Gage_Skidmore_2.jpg",
-            },
+			Content: image,
+            //Source: &pb.ImageSource{
+            //    HttpUri: "https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg",
+            //},
 		},
         Resize: true,
         AllowCrop: true,

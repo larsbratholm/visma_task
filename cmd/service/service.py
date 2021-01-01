@@ -11,8 +11,6 @@ from io import BytesIO
 from PIL import Image
 import numpy as np
 
-# Add the protobuf api to system path and import
-sys.path.append(os.path.join(os.path.dirname(__file__), "../..", "proto"))
 import api_pb2
 import api_pb2_grpc
 
@@ -116,17 +114,13 @@ class ImageScaler(api_pb2_grpc.ImageScalerServicer):
     def _convert_to_greyscale(self, img):
         """ Converts a PIL Image to greyscale
         """
-        print(54)
         return img.convert("L")
 
     def _image_to_bytes(self, image, fmt):
         """ Convert PIL Image to bytes stream
         """
-        print(55)
         bytes_io = BytesIO()
-        print(56)
         image.save(bytes_io, format=fmt)
-        print(57)
         return bytes_io.getvalue()
 
 

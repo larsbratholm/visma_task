@@ -15,7 +15,7 @@ import (
 
 const (
 	port = ":50051"
-    image_scaler_host = "localhost:50052"
+    image_scaler_host = ":50052"
 )
 
 // starts the Prometheus stats endpoint server
