@@ -38,4 +38,4 @@ ENV PATH=/opt/conda/bin:$PATH
 
 EXPOSE 50051
 # sleep to make sure python server is up and running before go server
-ENTRYPOINT ["conda", "run", "-n", "imagescaler", "python", "/app/service.py", "&", "sleep 4", "&", "/app/service"]
+ENTRYPOINT ["conda", "run", "-n", "imagescaler", "python", "/app/service.py", "&", "sleep 4", "&&", "/app/service"]
